@@ -41,8 +41,16 @@
         //Link Audio Bisa Diganti
         var audio = new Audio("its onlyme.mp3");
         audio.play();
+        audio.loop = true;
+        audio.addEventListener(
+          "ended",
+          function () {
+            this.currentTime = 0;
+            this.play();
+          },
+          false
+        );
       }
-
       //Reaksi
       async function reaksi() {
         await swals.fire("Semangat buat jalanin harinya", "Sekian dan terima kasih wkwk");
